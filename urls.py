@@ -19,4 +19,5 @@ from app2 import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('sample/',views.sample,name='sample'),
+    path('signup/',views.signup,name='signup'),
 ]
