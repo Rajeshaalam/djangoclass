@@ -1,5 +1,18 @@
 from django.shortcuts import render
-from django.http import HttpResponse
+
 # Create your views here.
-def hi(request):
-	return HttpResponse("<h2>rajesh welcome to django <br>session</h2>")
+
+def home(request):
+	return render(request,'home.html')
+def register(request):
+	if request.method=='POST':
+		fname=request.POST['fname']
+		lname=request.POST['lname']
+		if request.POST.get('f')=='on':
+			gender='female'
+		elif request.POST.get('m')=='on':
+			gender='male'	
+		branch=request.POST['branch']
+		#data=fname,lname,gender,branch
+		return render(request,'data.html',{'fname':fname,'lname':lname,'branch':branch})
+	return render(request,'register.html')
